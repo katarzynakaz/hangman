@@ -6,12 +6,9 @@ from update_display import update_display
 
 chosen_word = random.choice(word_list)
 
-placeholder = ''
+placeholder = '_'* len(chosen_word)
 
 lives = 6
-
-for index in range(len(chosen_word)):
-    placeholder += '_'
 
 guessed_letters = []
 invalid_guessed_letters = []
