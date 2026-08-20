@@ -31,9 +31,6 @@ while not game_over:
         if lives == 0:
             game_over = True
             print(f"Game over. The correct word was '{chosen_word}'")
-   
-    elif guess in invalid_guessed_letters:
-        print(f"You have already guessed '{guess}'.")
 
 
     if '_' not in display:
