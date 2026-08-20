@@ -1,4 +1,4 @@
-def validate_guess(guessed_letters):
+def validate_guess(guessed_letters, invalid_guessed_letters):
     guess = input('Guess a letter\n').lower().strip()
     
     while len(guess) != 1 or not guess.isalpha() or guess in guessed_letters:

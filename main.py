@@ -13,17 +13,19 @@ for index in range(len(chosen_word)):
     placeholder += '_'
 
 guessed_letters = []
+invalid_guessed_letters = []
+
 game_over = False
 print(placeholder)
 
 while not game_over:
-    guess = validate_guess(guessed_letters)
+    guess = validate_guess(guessed_letters, invalid_guessed_letters)
     display = '' 
 
     for letter in chosen_word: 
         if letter == guess:
             display += letter
-            guessed_letters.append(letter)
+            guessed_letters.append(guess)
         elif letter in guessed_letters:
             display += letter
         else: 
@@ -31,8 +33,9 @@ while not game_over:
             
     print(display)
 
-    if guess not in chosen_word:
+    if guess not in chosen_word and guess not in invalid_guessed_letters:
         lives -= 1 
+        invalid_guessed_letters.append(guess)
         print(live_stages[lives])
         print(f"You guessed {guess}, it is not in the word. ****************************{lives}/6 LIVES LEFT****************************")
 
