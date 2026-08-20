@@ -1,7 +1,7 @@
 import random
 from lives import live_stages
 from hangman_words import word_list 
-import validate_guess
+from validator import validate_guess
 
 chosen_word = random.choice(word_list)
 
@@ -17,7 +17,7 @@ game_over = False
 print(placeholder)
 
 while not game_over:
-    guess = validate_guess()
+    guess = validate_guess(guessed_letters)
     display = '' 
 
     for letter in chosen_word: 
@@ -29,8 +29,6 @@ while not game_over:
         else: 
             display += '_'
             
-    if guess in guessed_letters:
-        print(f'You have already guessed {guess}')
     print(display)
 
     if guess not in chosen_word:
@@ -40,7 +38,7 @@ while not game_over:
 
         if lives == 0:
             game_over = True
-            print(f'Game over. The correct word was {chosen_word}')
+            print(f"Game over. The correct word was '{chosen_word}'")
    
     if '_' not in display:
         game_over = True
