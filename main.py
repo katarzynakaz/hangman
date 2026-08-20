@@ -2,6 +2,7 @@ import random
 from lives import live_stages
 from hangman_words import word_list 
 from validator import validate_guess
+from update_display import update_display
 
 chosen_word = random.choice(word_list)
 
@@ -19,17 +20,7 @@ game_over = False
 print(placeholder)
 
 while not game_over:
-    guess = validate_guess(guessed_letters, invalid_guessed_letters)
-    display = '' 
-
-    for letter in chosen_word: 
-        if letter == guess:
-            display += letter
-            guessed_letters.append(guess)
-        elif letter in guessed_letters:
-            display += letter
-        else: 
-            display += '_'
+    guess, display = update_display(chosen_word, guessed_letters, invalid_guessed_letters)
             
     print(display)
 
