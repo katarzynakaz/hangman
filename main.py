@@ -26,11 +26,16 @@ while not game_over:
         invalid_guessed_letters.append(guess)
         print(live_stages[lives])
         print(f"You guessed {guess}, it is not in the word. ****************************{lives}/6 LIVES LEFT****************************")
+        
 
         if lives == 0:
             game_over = True
             print(f"Game over. The correct word was '{chosen_word}'")
    
+    elif guess in invalid_guessed_letters:
+        print(f"You have already guessed '{guess}'.")
+
+
     if '_' not in display:
         game_over = True
         print('You win!')
